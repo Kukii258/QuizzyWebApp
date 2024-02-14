@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b25; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+}
+
+.navigation ul li a:hover,
+.navigation ul li button:hover {
+    color: #ffcc00; /* Yellow on hover */
+}
+
+.logout-button {
+    background-color: transparent;
+    border: 2px solid #ffffff; /* White border */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #0a0f24; /* Dark blue text on hover */
+}
+
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-form button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.search-form button i {
+    color: #555;
+}
+
+.search-form button:hover i {
+    color: #000;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Change to flexbox */
+    align-items: center; /* Align vertically */
+}
+
+.navigation ul li {
+    margin-right: 20px;
+}
+
+.search-form {
+    display: flex; /* Use flexbox for form elements */
+    align-items: center; /* Align vertically */
+}
+
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+main {
+    background: rgb(18, 21, 35);
+    background: linear-gradient(317deg, rgba(18, 21, 35, 1) 42%, rgba(115, 115, 115, 1) 88%);
+    color: #ffffff; /* White text */
+    min-height: 74vh;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homeBtn a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+}
+
+.homeBtn {
+    background-color: #ffcc00; /* Yellow button */
+    color: #0a0f24; /* Dark blue text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.homeBtn:hover {
+    background-color: #ffe066; /* Lighter yellow on hover */
+    color: black;
+}
+
+.footer {
+    background-color: black; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+    text-align: center;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    margin-top: 20px;
+}
+
+.styled-table caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff; /* White border */
+}
+
+.styled-table th {
+    background-color: #333; /* Dark background */
+    color: #ffffff; /* White text */
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background on hover */
+}
+
+.active-row {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background for active row */
+}

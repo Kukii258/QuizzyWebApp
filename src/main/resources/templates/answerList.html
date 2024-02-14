@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzy</title>
+    <link rel="stylesheet" th:href="@{/answerList.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h3>Your Answers</h3>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/feedPage/{id}(id=${userInfo.getId()})}">Home Page</a></li>
+                <li><a th:href="@{/userStats/{id}(id=${userInfo.getId()})}">Your Stats</a></li>
+                <li><a th:href="@{/makeQuiz/{id}(id=${userInfo.getId()})}">Create Quiz</a></li>
+                <li><a th:href="@{/listQuiz/{id}(id=${userInfo.getId()})}">My Quizzes</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfo.getId()}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+<main>
+    <h3>Time: <span th:text="${time}"></span></h3>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Yours Answers</th>
+        <th>Question</th>
+        <th>Correct Answers</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="active-row" th:each="answer : ${answersList}">
+        <td th:text="${answer.getPlayerAnswer()}"></td>
+        <td th:text="${answer.getQuestion()}"></td>
+        <td th:text="${answer.getCorrectAnswer()}"></td>
+    </tr>
+    </tbody>
+</table>
+    <a th:href="@{/feedPage/{id}(id=${userInfo.getId()})}"><button class="homeBtn">Back To Home Page </button></a>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

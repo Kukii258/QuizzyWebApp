@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b25; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    overflow: hidden;
+}
+
+.main-content {
+    background: rgb(18, 21, 35); /* Dark blue */
+    background: linear-gradient(317deg, rgba(18, 21, 35, 1) 42%, rgba(115, 115, 115, 1) 88%); /* Gradient for night sky effect */
+    color: #ffffff; /* White text */
+    padding: 50px 0;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .container {
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 36px;
+}
+
+.main-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.main-content .questions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two items per row */
+    gap: 20px; /* Add spacing between quizzes */
+    width: 100%;
+    justify-content: center; /* Center the quiz list horizontally */
+    align-items: center;
+}
+
+.question-form {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+input[type="text"],
+button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #1b1b25;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ffc107; /* Yellow button */
+    color: #ffffff; /* White text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffffff; /* White on hover */
+    color: black;
+}
+
+.footer {
+    background-color: black; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.footer p {
+    margin: 0;
+    text-align: center;
+}

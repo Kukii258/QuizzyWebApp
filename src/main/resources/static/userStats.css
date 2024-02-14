@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b25; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo  {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+}
+
+.navigation ul li a:hover {
+    color: #ffcc00; /* Yellow on hover */
+}
+.navigation ul li button:hover {
+    color: #ffcc00; /* Yellow on hover */
+}
+
+.logout-button {
+    background-color: transparent;
+    border: 2px solid #ffffff; /* White border */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #0a0f24; /* Dark blue text on hover */
+}
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-form button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.search-form button i {
+    color: #555;
+}
+
+.search-form button:hover i {
+    color: #000;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Change to flexbox */
+    align-items: center; /* Align vertically */
+}
+
+.navigation ul li {
+    margin-right: 20px;
+}
+
+.search-form {
+    display: flex; /* Use flexbox for form elements */
+    align-items: center; /* Align vertically */
+}
+
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.main-content {
+    background: rgb(18,21,35);
+    background: linear-gradient(317deg, rgba(18,21,35,1) 42%, rgba(115,115,115,1) 88%);
+    color: #ffffff; /* White text */
+    padding: 50px 0;
+    display: flex;
+    flex: auto;
+    min-height: 67vh;
+}
+
+.main-content .container {
+    max-width: 1000px; /* Limit the width of the content */
+    min-width: 410px;
+    margin: 0 auto; /* Center the content horizontally */
+    display: flex; /* Use flexbox to layout the content */
+    flex-direction: column; /* Arrange content in a column */
+    align-items: center; /* Center content horizontally */
+}
+
+
+.main-content .stats-summary {
+    margin-bottom: 20px; /* Add spacing between stats summary and quiz list */
+}
+
+.main-content .stats-summary p {
+    margin: 5px 0; /* Add spacing between each stat */
+}
+
+.main-content .stats-summary p span {
+    font-weight: bold; /* Make the stat values bold */
+}
+
+
+.main-content .quiz-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two items per row */
+    gap: 20px; /* Add spacing between quizzes */
+    width: 1000px; /* Ensure the quiz list takes up full width */
+    justify-content: center; /* Center the quiz list horizontally */
+}
+
+.main-content .quiz {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    padding: 10px; /* Add padding to each quiz */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.main-content .quiz h3 {
+    margin-top: 0; /* Remove default margin for quiz title */
+}
+
+.main-content .quiz p {
+    margin: 5px 0; /* Add spacing between each quiz detail */
+}
+
+.main-content .quiz p span {
+    font-weight: bold; /* Make the quiz detail values bold */
+}
+
+.main-content .stats-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-content .stat {
+    border: 1px solid #ffffff; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    text-align: center;
+}
+
+.main-content .stat p {
+    margin: 5px 0;
+}
+
+.feed .container{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: black; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+    text-align: center;
+}

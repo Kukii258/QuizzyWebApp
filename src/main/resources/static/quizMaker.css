@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b25; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.logo  {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+}
+
+.navigation ul li a:hover, .navigation ul li button:hover {
+    color: #ffcc00; /* Yellow on hover */
+}
+
+
+.logout-button {
+    background-color: transparent;
+    border: 2px solid #ffffff; /* White border */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #0a0f24; /* Dark blue text on hover */
+}
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-form button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.search-form button i {
+    color: #555;
+}
+
+.search-form button:hover i {
+    color: #000;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Change to flexbox */
+    align-items: center; /* Align vertically */
+}
+
+.navigation ul li {
+    margin-right: 20px;
+}
+
+.search-form {
+    display: flex; /* Use flexbox for form elements */
+    align-items: center; /* Align vertically */
+}
+
+.search-form input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+/* Your existing CSS styles */
+.feed {
+    background: rgb(18,21,35);
+    background: linear-gradient(317deg, rgba(18,21,35,1) 42%, rgba(115,115,115,1) 88%);
+    color: #ffffff; /* White text */
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feed-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column; /* Display children in a column */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+}
+
+.quiz-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 700px;
+    max-width: 1000px; /* Adjust the width as needed */
+    height: 200px;
+}
+
+.quiz-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.quiz-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    background-color: #ffcc00; /* Yellow button */
+    color: #0a0f24; /* Dark blue text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #ffe066; /* Lighter yellow on hover */
+}
+
+
+.main-content {
+    background: rgb(18,21,35); /* Dark blue */
+    background: linear-gradient(317deg, rgba(18,21,35,1) 42%, rgba(115,115,115,1) 88%); /* Gradient for night sky effect */
+    color: #ffffff; /* White text */
+    height: 66.5vh;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content .container {
+    text-align: center;
+    flex-direction: column;
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+main form .checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin: -13px;
+}
+
+/* Style for all input fields */
+input[type="text"], input[type="checkbox"], input[type="submit"], input[type="number"] {
+    padding: 10px; /* Padding around the text */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default focus outline */
+    font-size: 16px; /* Font size */
+}
+
+/* Style for input fields on focus */
+input[type="text"]:focus, input[type="checkbox"]:focus, input[type="submit"]:focus, input[type="number"]:focus {
+    border-color: #ffcc00; /* Yellow border on focus */
+}
+
+.numberOfQuestions {
+    margin: -15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.numberOfQuestions input[type="number"]{
+    width: 20px;
+}
+
+/* Style for submit button */
+input[type="submit"] {
+    background-color: #ffcc00; /* Yellow background */
+    color: #1b1b25; /* Dark blue text */
+    border: none; /* Remove border */
+    cursor: pointer; /* Cursor pointer on hover */
+    padding: 12px 24px; /* Padding around the text */
+    font-size: 18px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Style for submit button on hover */
+input[type="submit"]:hover {
+    background-color: #ffe066; /* Lighter yellow background on hover */
+    color: #1b1b25; /* Dark blue text */
+}
+
+
+.main-content h1 {
+    font-size: 36px;
+}
+
+.main-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.start-quiz-btn {
+    background-color: #ffcc00; /* Yellow */
+    color: #1b1b25; /* Dark blue text */
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-quiz-btn:hover {
+    background-color: #ffffff; /* White */
+    color: #1b1b25; /* Dark blue text */
+}
+
+.footer {
+    background-color: black; /* Dark blue for the night sky */
+    color: #ffffff; /* White text */
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+    text-align: center;
+}

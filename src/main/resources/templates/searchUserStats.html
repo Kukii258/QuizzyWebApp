@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/userStats.css}">
+    <title>User Stats Page</title>
+</head>
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h3><span th:text="${searchInfo.getFirstName()}"></span> Stats</h3>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/feedPage/{id}(id=${userInfoId})}">Home Page</a></li>
+                <li><a th:href="@{/makeQuiz/{id}(id=${userInfoId})}">Create Quiz</a></li>
+                <li><a th:href="@{/listQuiz/{id}(id=${userInfoId})}">My Quizzes</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfoId}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <h2><span th:text="${searchInfo.getEmail()}"></span> Stats</h2>
+        <div class="stats-summary">
+            <p>Total Quizzes Played: <span th:text="${userStatsInfo.getNumberOfQuizPlayed()}"></span></p>
+            <p>Correct Answers: <span th:text="${userStatsInfo.getCorrect()}"></span></p>
+            <p>Incorrect Answers: <span th:text="${userStatsInfo.getWrong()}"></span></p>
+            <p>Accuracy: <span th:text="${userStatsInfo.getCWRatio()}"></span>%</p>
+        </div>
+
+
+        <h2>All Quizzes Played</h2>
+        <div class="quiz-list">
+            <div class="quiz" th:each="stats : ${quizStatsList}" >
+                <h3>Number of Time Played: <span th:text="${stats.getTimePlayed()}"></span></h3>
+                <h3>Quiz Title: <span th:text="${stats.getQuizName()}"></span></h3>
+                <p>Correct Answers: <span th:text="${stats.getCorrectAnswers()}"></span></p>
+                <p>Incorrect Answers: <span th:text="${stats.getWrongAnswers()}"></span></p>
+                <p>Time: <span th:text="${stats.getTime()}"></span> seconds</p>
+                <p>Date Played: <span th:text="${stats.getRegisterDate()}"></span></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

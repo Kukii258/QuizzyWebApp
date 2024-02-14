@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Questions</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/quizMakeQuestion.css}">
+</head>
+<body>
+
+<main>
+    <section class="main-content">
+        <div class="container">
+            <h1>Set Questions</h1>
+            <form th:object="${questionInfo}" th:action="@{/quizSaveQuestion}" method="post" class="question-form">
+                <input type="hidden" th:value="${quizInfo.getId()}" name="quizTableid">
+                <input type="text" th:field="*{question}" placeholder="Question" required>
+                <div class="questions">
+                    <input type="text" th:field="*{answerOne}" placeholder="Answer One" required>
+                    <input type="text" th:field="*{answerTwo}" placeholder="Answer Two" required>
+                    <input type="text" th:field="*{answerThree}" placeholder="Answer Three" required>
+                    <input type="text" th:field="*{answerFour}" placeholder="Answer Four" required>
+                    <span th:if="${error != null}" th:text="${error}" class="error-message" style="color: red"></span>
+                </div>
+                <input type="text" th:field="*{corectAnswer}" placeholder="Correct Answer" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

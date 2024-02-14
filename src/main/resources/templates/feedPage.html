@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzy</title>
+    <link rel="stylesheet" th:href="@{/feed_page.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h3>Welcome <span th:text="${userInfo.getFirstName()}"></span>!</h3>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/userStats/{id}(id=${userInfo.getId()})}">Your Stats</a></li>
+                <li><a th:href="@{/makeQuiz/{id}(id=${userInfo.getId()})}">Create Quiz</a></li>
+                <li><a th:href="@{/listQuiz/{id}(id=${userInfo.getId()})}">My Quizzes</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfo.getId()}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+<section class="feed">
+    <div class="container">
+        <h2 class="feed-title">Other People Quizzes</h2>
+        <div class="quiz-container">
+            <div class="quiz-item" th:each="quiz : ${quizList}">
+                <h3 class="quiz-title">Author: <span th:text="${quiz.getOwnerEmail()}"></span></h3>
+                <p class="quiz-description">Quiz Name: <span th:text="${quiz.getName()}" ></span></p>
+                <p class="quiz-description">Date: <span th:text="${quiz.getDate()}"></span> </p>
+                <a th:href="@{/play/{id}(id=${quiz.id}, playerId=${userInfo.id})}" class="button-link"><button class="play-button">Play Quiz</button></a>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

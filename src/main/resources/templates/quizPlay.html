@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzy - Play Quiz</title>
+    <link rel="stylesheet" th:href="@{/quizPlay.css}">
+</head>
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <nav class="navigation">
+            <ul>
+                <li><h2>Quiz <span th:text="${quizInfo.getName()}"></span></h2></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+    <form method="post" th:object="${questionsInfo}" th:action="@{/submitAnswer}">
+        <!-- Hidden fields for answer and quiz/player IDs -->
+        <input type="hidden" name="odg" id="selectedAnswer" />
+        <input type="hidden" name="QuizId" th:value="${questionsInfo.getId()}" />
+        <input type="hidden" name="player" th:value="${player.id}" />
+
+        <h1><span th:text="${questionsInfo.question}"></span>:</h1>
+
+        <div class="answers">
+            <button type="button" class="answer answer1" onclick="selectAnswer(1)">
+                <span th:text="${questionsInfo.getAnswerOne()}"></span>
+            </button>
+            <button type="button" class="answer answer2" onclick="selectAnswer(2)">
+                <span th:text="${questionsInfo.answerTwo}"></span>
+            </button>
+            <button type="button" class="answer answer3" onclick="selectAnswer(3)">
+                <span th:text="${questionsInfo.answerThree}"></span>
+            </button>
+            <button type="button" class="answer answer4" onclick="selectAnswer(4)">
+                <span th:text="${questionsInfo.answerFour}"></span>
+            </button>
+        </div>
+
+        <span th:if="${error != null}" th:text="${error}" class="error-message"></span>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit Answer" />
+    </form>
+</main>
+
+<script>
+    document.getElementById("selectedAnswer").value = 0;
+
+    function selectAnswer(answer) {
+        document.getElementById("selectedAnswer").value = answer;
+        console.log("Selected answer: " + answer);
+
+        // Remove red border from all answer buttons
+        var answerButtons = document.querySelectorAll('.answer');
+        answerButtons.forEach(function(button) {
+            button.style.border = "";
+        });
+
+        // Set red border for the clicked answer button
+        var clickedButton = document.querySelector('.answer' + answer);
+        clickedButton.style.border = "2px solid gold";
+    }
+</script>
+
+</body>
+</html>

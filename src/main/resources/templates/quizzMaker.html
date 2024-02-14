@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Questions</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/quizMaker.css}">
+
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance:textfield;
+        }
+    </style>
+</head>
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h3>Create Quiz!</h3>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/userStats/{id}(id=${userInfo.getId()})}">Your Stats</a></li>
+                <li><a th:href="@{/feedPage/{id}(id=${userInfo.getId()})}">Home Page</a></li>
+                <li><a th:href="@{/listQuiz/{id}(id=${userInfo.getId()})}">My Quizzes</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfo.getId()}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button class="btnSubmit" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+
+<main>
+    <section class="main-content">
+        <div class="container">
+
+            <h1>Make your own quiz <span th:text="${userInfo.getFirstName()}"></span>! </h1>
+
+            <form th:action="@{/makeQuiz}" th:object="${quizInfo}" method="post">
+
+                <input type="hidden" th:value="${userInfo.getId()}" name="ownerId">
+                <input type="hidden" th:value="${userInfo.getEmail()}" name="ownerEmail">
+
+                <input type="text" th:field="*{name}" placeholder="Name of Quiz" required>
+                <div class="numberOfQuestions">
+                    <p>Number Of Questions: </p>
+                    <input type="number" th:field="*{numberOfQuestions}"  class="input_trans" required
+                       style="-moz-appearance: textfield; /* Firefox */"
+                       max="15" min="1">
+                </div>
+                <div class="checkbox">
+                    <p>Public</p>
+                    <input type="checkbox" th:checked="${quizInfo.type}" th:field="*{type}">
+                </div>
+                <button class="start-quiz-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

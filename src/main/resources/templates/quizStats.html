@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/quizStats.css}">
+    <title>User Stats Page</title>
+</head>
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <p>Welcome <span th:text="${userInfo.getFirstName()}"></span></p>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/feedPage/{id}(id=${userInfo.getId()})}">Home Page</a></li>
+                <li><a th:href="@{/makeQuiz/{id}(id=${userInfo.getId()})}">Create Quiz</a></li>
+                <li><a th:href="@{/listQuiz/{id}(id=${userInfo.getId()})}">My Quizzes</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfo.getId()}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+<main>
+<table class="styled-table">
+    <caption>First Time Played:</caption>
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Player Email</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="active-row" th:each="quizLista, i : ${quizList}">
+        <td th:text="${i.count + '.'}"></td>
+        <td th:text="${quizLista.getPlayerEmail()}"></td>
+        <td th:text="${quizLista.getTime()}"></td>
+    </tr>
+    </tbody>
+</table>
+    <h2><a th:href="@{/playQuiz/{id}(id=${id}, playerId=${playerId})}" class="button-link">Play</a></h2>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

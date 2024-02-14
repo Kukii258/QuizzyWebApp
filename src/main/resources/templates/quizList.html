@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Questions</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/quizList.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h3>List of Quizzes <span th:text="${userInfo.getFirstName()}"></span></h3>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a th:href="@{/userStats/{id}(id=${userInfo.getId()})}">Your Stats</a></li>
+                <li><a th:href="@{/makeQuiz/{id}(id=${userInfo.getId()})}">Create Quiz</a></li>
+                <li><a th:href="@{/feedPage/{id}(id=${userInfo.getId()})}">Home Page</a></li>
+                <li>
+                    <form class="search-form" th:action="@{/search}"  th:object="${search}" method="post">
+                        <input type="hidden" th:value="${userInfo.getId()}" name="id">
+                        <input type="text" th:field="*{name}" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a th:href="@{/login}" ><button class="logout-button">Logout</button></a>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <div class="quiz-list">
+            <div class="quiz" th:each="quiz : ${quizInfo}">
+                <h3>Name: <span th:text="${quiz.getName()}"></span></h3>
+                <h4>Quiz Type: <span th:if="${quiz.type == true}">Public</span><span th:if="${quiz.type != true}">Private</span></h4>
+                <p><a th:href="@{/makePublic/{quizId}(quizId=${quiz.id})}" >Change Private/Public</a></p>
+                <a th:href="@{/play/{id}(id=${quiz.id}, playerId=${userInfo.id})}" class="button-link"><button class="btn">Play</button></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Quizzy. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
